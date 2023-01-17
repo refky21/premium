@@ -20,7 +20,7 @@ BURIQ () {
     done
     rm -f  /root/tmp
 }
-# https://raw.githubusercontent.com/nanotechid/supreme/aio/permission/ip 
+# https://raw.githubusercontent.com/Acelrrh/premium/main/permission/ip 
 MYIP=$(curl -sS ipv4.icanhazip.com)
 Name=$(curl -sS https://raw.githubusercontent.com/Acelrrh/premium/main/permission/ip | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
@@ -163,7 +163,7 @@ mkdir -p /var/lib/ >/dev/null 2>&1
 echo "IP=" >> /var/lib/ipvps.conf
 
 echo ""
-#wget -q https://raw.githubusercontent.com/nanotechid/supreme/aio/tools.sh;chmod +x tools.sh;./tools.sh
+#wget -q https://raw.githubusercontent.com/Acelrrh/premium/main/tools.sh;chmod +x tools.sh;./tools.sh
 #rm tools.sh
 clear
 red "Tambah Domain Untuk XRAY"
@@ -197,6 +197,7 @@ sleep 0.5
 clear
 wget https://raw.githubusercontent.com/Acelrrh/premium/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 wget https://raw.githubusercontent.com/Acelrrh/premium/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wgte https://raw.githubusercontent.com/Acelrrh/premium/main/websocket/websocket.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
