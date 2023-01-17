@@ -14,7 +14,7 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 # ==================================================
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/fisabiliyusri/coba/main/ssh"
+akbarvpn="raw.githubusercontent.com/Acelrrh/premium/main/ssh"
 #
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
