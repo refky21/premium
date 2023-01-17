@@ -243,7 +243,7 @@ echo ""
 echo ""
 echo "   >>> Service & Port"  | tee -a log-install.txt
 echo "   - OpenSSH                  : 22"  | tee -a log-install.txt
-echo "   - SSH Websocket            : 80 [ON]" | tee -a log-install.txt
+echo "   - SSH Websocket            : 8880 [ON]" | tee -a log-install.txt
 echo "   - SSH SSL Websocket        : 443" | tee -a log-install.txt
 echo "   - Stunnel4                 : 222, 777" | tee -a log-install.txt
 echo "   - Dropbear                 : 109, 143" | tee -a log-install.txt
@@ -261,7 +261,7 @@ echo "   - Vmess gRPC               : 443" | tee -a log-install.txt
 echo "   - Vless gRPC               : 443" | tee -a log-install.txt
 echo "   - Trojan gRPC              : 443" | tee -a log-install.txt
 echo "   - Shadowsocks gRPC         : 443" | tee -a log-install.txt
-echo ""
+echo ""  - Squid Proxy              :3128,8080 | tee -a log-install.txt
 echo ""
 echo "------------------------------------------------------------"
 echo ""
