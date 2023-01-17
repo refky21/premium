@@ -194,7 +194,7 @@ socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 
 [dropbear]
-accept = 222
+accept = 143
 connect = 127.0.0.1:22
 
 [dropbear]
@@ -202,7 +202,7 @@ accept = 443
 connect = 127.0.0.1:109
 
 [ws-stunnel]
-accept = 80
+accept = 442
 connect = 127.0.0.1:700
 
 [openvpn]
