@@ -198,6 +198,7 @@ clear
 wget https://raw.githubusercontent.com/Acelrrh/premium/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 wget https://raw.githubusercontent.com/Acelrrh/premium/main/sshws/sshws.sh && chmod +x insshws.sh && ./insshws.sh
 wgte https://raw.githubusercontent.com/Acelrrh/premium/main/websocket/edu.sh
+# wget https://raw.githubusercontent.com/Acelrrh/premium/main/ipsaya.sh && chmod +x ipsaya.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
