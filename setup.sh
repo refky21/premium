@@ -196,9 +196,10 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 0.5
 clear
 wget https://raw.githubusercontent.com/Acelrrh/premium/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/Acelrrh/premium/main/stunnel5//ssh-ssl.sh && chmod +x /ssh-ssl.sh && ./ssh-ssl.sh/ssh-ssl
 wget https://raw.githubusercontent.com/Acelrrh/premium/main/sshws/sshws.sh && chmod +x insshws.sh && ./insshws.sh
-wgte https://raw.githubusercontent.com/Acelrrh/premium/main/websocket/edu.sh
-# wget https://raw.githubusercontent.com/Acelrrh/premium/main/ipsaya.sh && chmod +x ipsaya.sh
+wget https://raw.githubusercontent.com/Acelrrh/premium/main/websocket/edu.sh
+wget https://raw.githubusercontent.com/Acelrrh/premium/main/ipsaya.sh && chmod +x ipsaya.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
