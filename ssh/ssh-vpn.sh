@@ -183,8 +183,20 @@ echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
 
+# banner /etc/issue.net
+echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
+sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
+# Install BBR
+#wget https://raw.githubusercontent.com/Acelrrh/premium/main/bbr.sh && chmod +x bbr.sh && ./bbr.sha
 cd
 # install stunnel
+# install squid (proxy nya aku matikan)
+cd
+#apt -y install squid3
+#wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Acelrrh/premium/main/squid3.conf"
+#sed -i $MYIP2 /etc/squid/squid.conf
+
+
 apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
 cert = /etc/stunnel/stunnel.pem
@@ -363,6 +375,8 @@ chmod +x xp
 chmod +x sshws
 cd
 
+#install squid3
+sudo apt install squid3
 
 cat > /etc/cron.d/re_otm <<-END
 SHELL=/bin/sh
