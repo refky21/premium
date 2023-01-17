@@ -93,7 +93,7 @@ echo -e "                 • SUPREME •                 "
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\e[33m OS            \e[0m:  "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
 echo -e "\e[33m IP            \e[0m:  $IPVPS"	
-echo -e "\e[33m CITY           \e[0m:  $REGION"
+echo -e "\e[33m CITY           \e[0m:  INDONESIA"
 echo -e "\e[33m WA            \e[0m:  081374452477"
 echo -e "\e[33m DOMAIN        \e[0m:  $domain"	
 echo -e "\e[33m DATE & TIME   \e[0m:  $DATE2"	
