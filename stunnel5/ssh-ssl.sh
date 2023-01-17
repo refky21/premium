@@ -17,13 +17,13 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 akbarvpn=""raw.githubusercontent.com/fisabiliyusri/Mantap/main/ssh
 
 # Link Hosting Kalian Untuk Xray
-akbarvpnn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/xray"
+akbarvpnn="raw.githubusercontent.com/Acelrrh/premium/main/xray"
 
 # Link Hosting Kalian Untuk Trojan Go
-akbarvpnnn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/trojango"
+akbarvpnnn="raw.githubusercontent.com/Acelrrh/premium/main/trojango"
 
 # Link Hosting Kalian Untuk Stunnel5
-akbarvpnnnn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/stunnel5"
+akbarvpnnnn="raw.githubusercontent.com/Acelrrh/premium/main/stunnel5"
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
