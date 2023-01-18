@@ -108,6 +108,7 @@ echo -e " [\e[36m•5\e[0m] Trojan Menu"
 echo -e " [\e[36m•6\e[0m] System Menu"
 echo -e " [\e[36m•7\e[0m] Status Service"
 echo -e " [\e[36m•8\e[0m] Clear RAM Cache"
+echo -e " [\e[36m•8\e[0m] CEK PROT"
 echo -e   ""
 echo -e   " Press x or [ Ctrl+C ] • To-Exit-Script"
 echo -e   ""
@@ -127,6 +128,7 @@ case $opt in
 6) clear ; m-system ;;
 7) clear ; running ;;
 8) clear ; clearcache ;;
+9) cleaf ; changeport ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu ;;
 esac
