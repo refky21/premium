@@ -221,9 +221,13 @@ cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /etc/init.d/stunnel4 restart
 
-
+#install squid for debian 11
+apt -y install squid
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Acelrrh/premium2/main/squid3.conf"
+sed -i $MYIP2 /etc/squid/squid.conf
 # install fail2ban
 apt -y install fail2ban
+
 
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
@@ -251,6 +255,15 @@ echo '.....done'
 echo; echo 'Installation has completed.'
 echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
+
+
+# banner /etc/issue.net
+sleep 1
+echo -e "[ ${green}INFO$NC ] Settings banner"
+wget -q -O /etc/issue.net "https://raw.githubusercontent.com/rizood/multiws/main/issue.net"
+chmod +x /etc/issue.net
+echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 #install bbr dan optimasi kernel
 #wget https://raw.githubusercontent.com/nanotechid/supreme/aio/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
@@ -312,13 +325,13 @@ wget -O bw "https://raw.githubusercontent.com/Acelrrh/premium/main/menu/bw.sh"
 wget -O m-tcp "https://raw.githubusercontent.com/Acelrrh/premium/main/menu/tcp.sh"
 
 # change port
-#wget -O port-ssl "https://raw.githubusercontent.com/nanotechid/supreme/aio/port/port-ssl.sh"
-#wget -O port-ovpn "https://raw.githubusercontent.com/nanotechid/supreme/aio/port/port-ovpn.sh"
-#wget -O port-tr "https://raw.githubusercontent.com/nanotechid/supreme/aio/port/port-tr.sh"
+#wget -O port-ssl "https://raw.githubusercontent.com/Acelrth/premium/main/port/port-ssl.sh"
+#wget -O port-ovpn "https://raw.githubusercontent.com/Acelrrh/premium/main/port/port-ovpn.sh"
+#wget -O port-tr "https://raw.githubusercontent.com/Acelrrh/premium/main/port/port-tr.sh"
 
 
 wget -O xp "https://raw.githubusercontent.com/Acelrrh/premium/main/ssh/xp.sh"
-#wget -O asu "https://raw.githubusercontent.com/nanotechid/supreme/aio/asu.sh"
+#wget -O asu "https://raw.githubusercontent.com/Acelrrh/premium/main/asu.sh"
 wget -O sshws "https://raw.githubusercontent.com/Acelrrh/premium/main/ssh/sshws.sh"
 
 chmod +x menu
