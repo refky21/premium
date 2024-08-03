@@ -40,10 +40,10 @@ CEKLISENSI(){
 		FILE_LISENSI=$(cat /root/lisensi.ini)
 		if [ $DATA_LISENSI = $FILE_LISENSI ];then
 			 # echo -e "[ ${green}LISENSI${NC} ] Lisensi Kamu Valid"
-			 lis="lisensi_valid"
+			 res="lisensi_valid"
 		fi
 	else
-			lis="lisensi_tidak_valid"
+			res="lisensi_tidak_valid"
 	fi
 }
 
@@ -183,7 +183,7 @@ echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
 sleep 0.5
 echo -ne "[ ${yell}INFO${NC} ] Pemeriksaan Lisensi : "
 	CEKLISENSI
-	elif ["$lis" ="lisensi_valid"];then
+	elif ["$res" ="lisensi_valid"];then
 		green "Lisensi Valid"
 	else
 		LISENSI
