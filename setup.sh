@@ -36,8 +36,8 @@ BURIQ () {
 
 CEKLISENSI(){
 	DATA_LISENSI=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $5}' | grep $MYIP)
-	FILE_LISENSI=$(cat /root/lisensi.ini)
 	if [ ! -f "/root/lisensi.ini" ]; then
+		FILE_LISENSI=$(cat /root/lisensi.ini)
 		if [ $DATA_LISENSI = $FILE_LISENSI ];then
 			 # echo -e "[ ${green}LISENSI${NC} ] Lisensi Kamu Valid"
 			 lis="lisensi_valid"
