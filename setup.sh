@@ -33,13 +33,15 @@ if [ -f "/etc/.$Name.ini" ]; then
         res="Expired"
     fi
 else
+	clear
+	red "Lisensi Server"
+	echo " "
 	read -rp "Masukan Lisensi IP kamu : " -e lisensi
 	if [ -z $lisensi ]; then
 		echo -e "Kamu Harus Memiliki Lisensi"
 		rm -rf setup.sh
 		
 		res="Lisensi Tidak Ada"
-		exit
 	else
 		MYIP=$(curl -sS ipv4.icanhazip.com)
 		LISENSI=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $5}' | grep $MYIP)
@@ -48,7 +50,6 @@ else
 		else
 			res="Lisensi Anda Tidak Valid"
 			rm -rf setup.sh
-			exit
 		fi
 	fi
 fi
