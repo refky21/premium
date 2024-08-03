@@ -52,7 +52,7 @@ LISENSI (){
 	echo " "
 	read -rp "Masukan Lisensi IP kamu : " -e lisensi
 	if [ -z $lisensi ]; then
-		echo -e "Kamu Harus Memiliki Lisensi"
+		red "Kamu Harus Memiliki Lisensi"
 	else
 		MYIP=$(curl -sS ipv4.icanhazip.com)
 		LISENSI=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $5}' | grep $MYIP)
@@ -60,7 +60,7 @@ LISENSI (){
 			 echo -e "[ ${green}LISENSI${NC} ] Lisensi Kamu Valid"
 			 echo $lisensi > /root/lisensi.ini
 		else
-			echo -e "[ ${red}LISENSI${NC} ] Lisensi Tidak Kamu Valid"
+			echo -e "[ ${yellow}LISENSI${NC} ] Lisensi Kamu Tidak Valid"
 			exit 0
 		fi
 	fi
