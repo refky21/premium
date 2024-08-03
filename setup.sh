@@ -182,11 +182,12 @@ apt install python -y >/dev/null 2>&1
 echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
 sleep 0.5
 echo -ne "[ ${yell}INFO${NC} ] Pemeriksaan Lisensi : "
-	CEKLISENSI
-	elif ["$res" ="lisensi_valid"];then
-		green "Lisensi Valid"
-	else
-		LISENSI
+CEKLISENSI
+if ["$res" ="lisensi_valid"];then
+green "Lisensi Valid"
+else
+LISENSI
+fi
 sleep 0.5
 echo -ne "[ ${green}INFO${NC} ] Check permission : "
 PERMISSION
