@@ -2,6 +2,19 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
+clear
+red='\e[1;31m'
+green='\e[0;32m'
+yell='\e[1;33m'
+tyblue='\e[1;36m'
+NC='\e[0m'
+purple() { echo -e "\\033[35;1m${*}\\033[0m"; }
+tyblue() { echo -e "\\033[36;1m${*}\\033[0m"; }
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+green() { echo -e "\\033[32;1m${*}\\033[0m"; }
+red() { echo -e "\\033[31;1m${*}\\033[0m"; }
+
+
 
 BURIQ () {
     curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip > /root/tmp
@@ -20,6 +33,27 @@ BURIQ () {
     done
     rm -f  /root/tmp
 }
+
+
+LISENSI (){
+	tyblue "Lisensi Server"
+	echo " "
+	read -rp "Masukan Lisensi IP kamu : " -e lisensi
+	if [ -z $lisensi ]; then
+		echo -e "Kamu Harus Memiliki Lisensi"
+		res="Lisensi Tidak Ada"
+	else
+		MYIP=$(curl -sS ipv4.icanhazip.com)
+		LISENSI=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $5}' | grep $MYIP)
+		if [ "$LISENSI" = $lisensi ]; then
+			 echo -e "[ ${green}LISENSI${NC} ] Lisensi Kamu Valid"
+		else
+			echo -e "[ ${red}LISENSI${NC} ] Lisensi Tidak Kamu Valid"
+			exit 0
+		fi
+	fi
+}
+
 # https://raw.githubusercontent.com/refky21/premium/main/permission/ip 
 MYIP=$(curl -sS ipv4.icanhazip.com)
 Name=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | grep $MYIP | awk '{print $2}')
@@ -28,30 +62,12 @@ CekOne=$(cat /usr/local/etc/.$Name.ini)
 
 Bloman () {
 if [ -f "/etc/.$Name.ini" ]; then
-	CekTwo=$(cat /etc/.$Name.ini)
+CekTwo=$(cat /etc/.$Name.ini)
     if [ "$CekOne" = "$CekTwo" ]; then
         res="Expired"
     fi
 else
-	clear
-	red "Lisensi Server"
-	echo " "
-	read -rp "Masukan Lisensi IP kamu : " -e lisensi
-	if [ -z $lisensi ]; then
-		echo -e "Kamu Harus Memiliki Lisensi"
-		rm -rf setup.sh
-		
-		res="Lisensi Tidak Ada"
-	else
-		MYIP=$(curl -sS ipv4.icanhazip.com)
-		LISENSI=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $5}' | grep $MYIP)
-		if [ "$LISENSI" = $lisensi ]; then
-			res="Permission Accepted..."
-		else
-			res="Lisensi Anda Tidak Valid"
-			rm -rf setup.sh
-		fi
-	fi
+res="Permission Accepted..."
 fi
 }
 
@@ -59,6 +75,7 @@ PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
     IZIN=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
+	LISENSI
     Bloman
     else
     res="Permission Denied!"
@@ -66,17 +83,7 @@ PERMISSION () {
     BURIQ
 }
 
-clear
-red='\e[1;31m'
-green='\e[0;32m'
-yell='\e[1;33m'
-tyblue='\e[1;36m'
-NC='\e[0m'
-purple() { echo -e "\\033[35;1m${*}\\033[0m"; }
-tyblue() { echo -e "\\033[36;1m${*}\\033[0m"; }
-yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
-green() { echo -e "\\033[32;1m${*}\\033[0m"; }
-red() { echo -e "\\033[31;1m${*}\\033[0m"; }
+
 cd /root
 #System version number
 if [ "${EUID}" -ne 0 ]; then
