@@ -49,9 +49,6 @@ else
 			if [ "$LISENSI" = $lisensi ]; then
 			res="Permission Accepted..."
 		fi
-
-#
-res="Permission Accepted..."
 fi
 }
 
