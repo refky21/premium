@@ -58,7 +58,7 @@ LISENSI (){
 		LISENSI=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $5}' | grep $MYIP)
 		if [ "$LISENSI" = $lisensi ]; then
 			 echo -e "[ ${green}LISENSI${NC} ] Lisensi Kamu Valid"
-			 echo $lisensi > /root/lisensi.ini
+			 echo $lisensi >> /root/lisensi.ini
 		else
 			echo -e "[ ${yellow}LISENSI${NC} ] Lisensi Kamu Tidak Valid"
 			exit 0
@@ -120,6 +120,7 @@ touch /etc/xray/domain
 touch /etc/v2ray/domain
 touch /etc/xray/scdomain
 touch /etc/v2ray/scdomain
+touch /root/lisensi.ini
 
 
 echo -e "[ ${tyblue}NOTES${NC} ] Before we go.. "
