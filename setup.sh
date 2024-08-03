@@ -45,6 +45,10 @@ else
 		LISENSI=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $5}' | grep $MYIP)
 		if [ "$LISENSI" = $lisensi ]; then
 			res="Permission Accepted..."
+		else
+			res="Lisensi Anda Tidak Valid"
+			rm -rf setup.sh
+			exit
 		fi
 	fi
 fi
