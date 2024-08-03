@@ -34,6 +34,18 @@ BURIQ () {
     rm -f  /root/tmp
 }
 
+CEKLISENSI(){
+	DATA_LISENSI=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $5}' | grep $MYIP)
+	FILE_LISENSI=$(cat /root/lisensi.ini)
+	if [ ! -f "/root/lisensi.ini" ]; then
+		if [ $DATA_LISENSI = $FILE_LISENSI ];then
+			 # echo -e "[ ${green}LISENSI${NC} ] Lisensi Kamu Valid"
+			 lis="lisensi_valid"
+		fi
+	else
+			lis="lisensi_tidak_valid"
+	fi
+}
 
 LISENSI (){
 	tyblue "Lisensi Server"
@@ -41,12 +53,12 @@ LISENSI (){
 	read -rp "Masukan Lisensi IP kamu : " -e lisensi
 	if [ -z $lisensi ]; then
 		echo -e "Kamu Harus Memiliki Lisensi"
-		res="Lisensi Tidak Ada"
 	else
 		MYIP=$(curl -sS ipv4.icanhazip.com)
 		LISENSI=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $5}' | grep $MYIP)
 		if [ "$LISENSI" = $lisensi ]; then
 			 echo -e "[ ${green}LISENSI${NC} ] Lisensi Kamu Valid"
+			 echo $lisensi > /root/lisensi.ini
 		else
 			echo -e "[ ${red}LISENSI${NC} ] Lisensi Tidak Kamu Valid"
 			exit 0
@@ -168,8 +180,14 @@ apt install git curl -y >/dev/null 2>&1
 apt install python -y >/dev/null 2>&1
 echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
 sleep 0.5
+echo -ne "[ ${yell}INFO${NC} ] Pemeriksaan Lisensi : "
+	CEKLISENSI
+	elif ["$lis" ="lisensi_valid"];then
+		green "Lisensi Valid"
+	else
+		LISENSI
+sleep 0.5
 echo -ne "[ ${green}INFO${NC} ] Check permission : "
-
 PERMISSION
 if [ -f /home/needupdate ]; then
 red "Your script need to update first !"
