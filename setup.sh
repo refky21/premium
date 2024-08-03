@@ -33,6 +33,24 @@ CekTwo=$(cat /etc/.$Name.ini)
         res="Expired"
     fi
 else
+#
+	red "-- LICENSE IP"
+	echo " "
+	read -rp "Masukan Lisensi IP kamu : " -e lisensi
+		if [ -z $dns ]; then
+			echo -e "Kamu Harus Memiliki Lisensi"
+			rm -rf setup.sh
+			
+			res="Lisensi Tidak Ada"
+			exit
+		else
+			MYIP=$(curl -sS ipv4.icanhazip.com)
+			LISENSI=$(curl -sS https://raw.githubusercontent.com/refky21/premium/main/permission/ip | awk '{print $5}' | grep $MYIP)
+			if [ "$LISENSI" = $lisensi ]; then
+			res="Permission Accepted..."
+		fi
+
+#
 res="Permission Accepted..."
 fi
 }
