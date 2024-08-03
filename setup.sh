@@ -33,7 +33,6 @@ CekTwo=$(cat /etc/.$Name.ini)
         res="Expired"
     fi
 else
-#
 	red "-- LICENSE IP"
 	echo " "
 	read -rp "Masukan Lisensi IP kamu : " -e lisensi
